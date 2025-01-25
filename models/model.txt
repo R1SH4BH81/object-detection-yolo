@@ -1,0 +1,27 @@
+YOLOv8 Models:
+
+YOLOv8n (Nano):
+Lightweight and fastest.
+Suitable for edge devices or applications where speed is critical and computational resources are limited.
+Smallest model size.
+
+
+YOLOv8s (Small):
+Balances speed and accuracy.
+Ideal for real-time applications with moderate computational resources.
+
+
+YOLOv8m (Medium):
+Offers better accuracy compared to YOLOv8s.
+Suitable for more complex scenarios where accuracy is prioritized, but speed is still important.
+
+
+YOLOv8l (Large):
+Larger model with higher accuracy.
+Requires more computational resources.
+Suitable for applications where accuracy is critical, such as autonomous vehicles or advanced surveillance.
+
+
+YOLOv8x (Extra Large):
+Largest and most accurate model.
+Best for scenarios where maximum accuracy is required, and computational resources are not a constraint.
