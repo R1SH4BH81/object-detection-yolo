@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Video</title>
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='detect.ico') }}"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+      <h1 class="text-2xl font-bold mb-4">Upload Video for Processing</h1>
+      <form
+        action="/"
+        method="POST"
+        enctype="multipart/form-data"
+        class="flex flex-row items-center space-x-4"
+      >
+        <input
+          type="file"
+          name="video"
+          accept="video/mp4"
+          class="block text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+        />
+        <button
+          type="submit"
+          class="bg-blue-500 text-white py-2 px-2 rounded-full hover:bg-blue-600"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="white"
+          >
+            <path
+              d="M440-200h80v-167l64 64 56-57-160-160-160 160 57 56 63-63v167ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
