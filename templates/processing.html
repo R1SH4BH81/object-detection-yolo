@@ -27,6 +27,64 @@
         />
       </div>
 
-     
+      <!-- Progress Bar and Completion Message -->
+      <div class="mt-6" id="progress-section">
+        <h2 class="text-lg font-medium mb-2">In Progress...</h2>
+        <p>Please wait while we process your video. This may take some time.</p>
+        <div class="w-full bg-gray-200 rounded-full h-2 mt-4">
+          <div
+            id="progress-bar"
+            class="bg-blue-500 h-2 rounded-full"
+            style="width: 0%"
+          ></div>
+        </div>
+        <p class="mt-2 text-sm" id="progress-text">Progress: 0%</p>
+      </div>
+
+      <div class="mt-6 hidden" id="complete-section">
+        <h2 class="text-lg font-medium mb-2">Processing Complete!</h2>
+        <p>
+          Your video has been processed successfully. You can download it from
+          the link below:
+        </p>
+        <a
+          href="{{ url_for('download_video', filename=filename) }}"
+          class="text-blue-500 underline"
+        >
+          Download Processed Video
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const filename = "{{ filename }}";
+      const progressUrl = "{{ url_for('get_progress', filename=filename) }}";
+
+      function updateProgress() {
+        fetch(progressUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status === "processing") {
+              const progress = data.progress;
+              document.getElementById("progress-bar").style.width =
+                progress + "%";
+              document.getElementById(
+                "progress-text"
+              ).textContent = `Progress: ${Math.round(progress)}%`;
+            } else if (data.status === "complete") {
+              document
+                .getElementById("progress-section")
+                .classList.add("hidden");
+              document
+                .getElementById("complete-section")
+                .classList.remove("hidden");
+            }
+          })
+          .catch(console.error);
+      }
+
+      // Poll the server every 2 seconds for progress updates
+      setInterval(updateProgress, 100);
+    </script>
   </body>
 </html>
