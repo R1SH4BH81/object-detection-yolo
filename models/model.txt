@@ -1,9 +1,6 @@
 YOLOv8 Models:
 
-YOLOv8n (Nano):
-Lightweight and fastest.
-Suitable for edge devices or applications where speed is critical and computational resources are limited.
-Smallest model size.
+
 
 
 YOLOv8s (Small):
